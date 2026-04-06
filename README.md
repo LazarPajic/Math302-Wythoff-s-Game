@@ -8,7 +8,7 @@ git clone https://github.com/LazarPajic/Math302-Wythoff-s-Game.git
 
 ## Setting up Virtual Enviornment ## 
 
-Use the command in bash to create a new enviornment 
+Use the command in bash to create a new enviornment (this only has to be done once)
 
 ``` 
 python -m venv venv
@@ -26,10 +26,20 @@ Install required libraries
 pip install -r requirements.txt 
 ```
 
+You may have to update pip first
+```
+pip install --upgrade pip
+
 Run Demo
 
 ```
 python demo.py
+```
+
+Run the convergence
+
+```
+python plot_convergence.py
 ```
 
 Note: Replace python with the version you use to run python scripts (ie python3, py ...)
