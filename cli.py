@@ -1,8 +1,20 @@
-from wythoff.core import optimal_move 
+"""
+cli.py
+------
+This program runs Wythoff's game in the terminal.
+Two players take turns entering their input in the terminal
+to remove stones from one of the two piles.
+
+Usage:
+    python cli.py
+"""
+
+from wythoff.core import optimal_move
+
 
 def play():
     print("=== Wythoff's Game ===")
-    
+
     # Validate initial setup
     while True:
         try:
@@ -24,10 +36,16 @@ def play():
         valid_move = False
         while not valid_move:
             try:
-                move_input = input("Move (e.g., '1 5' for 5 from pile 1, or 'both 3'): ").lower().split()
+                move_input = (
+                    input("Move (e.g., '1 5' for 5 from pile 1, or 'both 3'): ")
+                    .lower()
+                    .split()
+                )
 
                 if len(move_input) != 2:
-                    print("Warning: Invalid format. Use '[pile] [amount]' or 'both [amount]'.")
+                    print(
+                        "Warning: Invalid format. Use '[pile] [amount]' or 'both [amount]'."
+                    )
                     continue
 
                 action = move_input[0]
@@ -43,7 +61,9 @@ def play():
                         y -= amt
                         valid_move = True
                     else:
-                        print(f"Warning: Cannot take {amt} from both. Piles are ({x}, {y}).")
+                        print(
+                            f"Warning: Cannot take {amt} from both. Piles are ({x}, {y})."
+                        )
                 elif action == "1":
                     if amt <= x:
                         x -= amt
@@ -57,17 +77,20 @@ def play():
                     else:
                         print(f"Warning: Pile 2 only has {y} items.")
                 else:
-                    print("Warning: Invalid pile selection. Choose '1', '2', or 'both'.")
+                    print(
+                        "Warning: Invalid pile selection. Choose '1', '2', or 'both'."
+                    )
             except ValueError:
                 print("Warning: Amount must be an integer.")
 
         # Check win condition
         if x == 0 and y == 0:
-            print(f"\nState: (0, 0)")
+            print("\nState: (0, 0)")
             print(f"Player {player} wins!")
             break
 
         player = 2 if player == 1 else 1
+
 
 if __name__ == "__main__":
     play()

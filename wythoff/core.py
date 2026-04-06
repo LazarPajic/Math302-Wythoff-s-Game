@@ -2,11 +2,13 @@ import math
 
 PHI = (1 + math.sqrt(5)) / 2
 
+
 def is_p_position(x, y):
     if x > y:
         x, y = y, x
     k = y - x
     return x == int(k * PHI)
+
 
 def optimal_move(x, y):
     swapped = False
@@ -29,7 +31,7 @@ def optimal_move(x, y):
 
     # Strategy 2: Take from the LARGER pile (currently y)
     # We must find a P-position that already contains 'x' as one of its values.
-    
+
     # Check if x represents the smaller value (a_k) in a P-position pair
     k_est = int(x * (PHI - 1))
     for k in (k_est - 1, k_est, k_est + 1, k_est + 2):
@@ -44,7 +46,9 @@ def optimal_move(x, y):
         if k >= 0 and int(k * PHI) + k == x:
             target_y = int(k * PHI)
             if y > target_y:
-                return _format_result("pile 2", y - target_y, min(x, target_y), max(x, target_y), swapped)
+                return _format_result(
+                    "pile 2", y - target_y, min(x, target_y), max(x, target_y), swapped
+                )
 
     # Strategy 3: Take from the SMALLER pile (currently x)
     # We must find a P-position that already contains 'y' as its larger value (b_k).
@@ -56,6 +60,7 @@ def optimal_move(x, y):
                 return _format_result("pile 1", x - target_x, target_x, y, swapped)
 
     return "No winning move found."
+
 
 def _format_result(action, amt, final_x, final_y, swapped):
     if swapped:

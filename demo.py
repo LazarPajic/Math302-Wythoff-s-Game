@@ -1,3 +1,12 @@
+"""
+demo.py
+-------
+The main file to be run that shows the visualization of the P-positions in Wythoff's game
+
+Usage:
+    python demo.py
+"""
+
 from wythoff.core import optimal_move
 from wythoff.visualize import plot
 
