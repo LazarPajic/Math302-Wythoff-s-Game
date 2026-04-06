@@ -36,10 +36,22 @@ Run Demo
 python demo.py
 ```
 
-Run the convergence
+Visualize the convergence to the golden ratio
 
 ```
 python plot_convergence.py
+```
+
+Play the game using a GUI
+
+```
+python gui.py
+```
+
+Play the game using the terminal
+
+```
+python cli.py
 ```
 
 Note: Replace python with the version you use to run python scripts (ie python3, py ...)
