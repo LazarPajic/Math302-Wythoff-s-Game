@@ -27,8 +27,10 @@ pip install -r requirements.txt
 ```
 
 You may have to update pip first
+
 ```
 pip install --upgrade pip
+```
 
 Run Demo
 
